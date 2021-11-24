@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <title>批卷单</title>
+
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        list-style:none;
+    }
+
+    body{
+    background-color:#e5ebf4;
+        background-image:url(image/IMG_001.JPG);
+        background-repeat: no-repeat;
+        margin-right: auto;
+        margin: 12px 155px 0px 150px;
+    }
+    .header {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+    }
+    .footer {
+        padding: 20px;
+        text-align: center;
+        background:#E5EBF4;
+        margin-bottom: 20px;
+    }
+    p.normal{
+        font-style:normal;
+        font-variant:Verdana, Geneva, sans-serif;
+        font-weight:bold;
+        font-size: 40px;
+    }
+    .logo-bar {
+        height: 110px;
+        background: linear-gradient(#E1EBF9, #fff, #E1EBF9);
+    }
+    .logo-img {
+        height: 65px;
+        margin-top: 20px;
+        margin-left: 55px;
+    }
+    .motto-img {
+        height: 65px;
+        margin-top: 20px;
+        margin-left: 120px;
+    }
+    .h-content {
+        width: 1100px;
+        margin: 0px auto;
+        position: relative;
+    } 
+    #ul1{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #6C9AD6;
+    }
+    li {
+        float:left;
+    }
+    .a1, .dropbtn {
+        display: inline-block;
+        color: white;
+        background-color:#6C9AD6;
+        text-align: center;
+        width:150px;
+        padding: 20px;
+        text-decoration: none;
+        font-weight:bold;
+    }
+    .a1:hover, .dropdown:hover, .dropbtn:hover {
+        background-color:#E5EBF4;
+        color:black;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,2);
+        border: 1px solid #555;
+    }
+    .a1:active{
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);		
+    }
+    #ul2{
+        display: inline-block;
+        text-decoration: none;
+        font-weight:bold;
+        list-style-type: none;
+        padding-top: 50px;
+        width: 130px;
+        background-color: #f1f1f1;
+        margin-left: 20px;
+        float: left;
+    }
+    .a2 {
+        text-align: center;
+        display: block;
+        color: #000;
+        width: 130px;
+        padding: 20px 16px;
+        text-decoration: none;
+        height: 70px;
+    }
+     
+    /* 鼠标移动到选项上修改背景颜色 */
+    .a2:hover {
+        background-color: #555;
+        color: white;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,2);
+        border: 1px solid #555;
+    }
+    .a2:active{
+        box-shadow: 0 5px #666;
+    }
+    .dropdown {
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #e5ebf4;
+        border: 1px solid #555;
+        min-width: 150px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,2);
+    }
+    .dropdown-content a {
+        color: black;
+        border: 1px solid #6C9AD6;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-content a:hover {
+        background-color: #ddd;
+        font-weight:bold;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .box {
+        background-image: linear-gradient(#eaeaea , #e5ebf4, #EAEAEA);
+        width: 1024px;
+        height: 768px;
+        border: 5px solid #6C9AD6;
+        padding: 0px;
+        margin-left: 150px;
+    }
+    div.imgf {
+        border: 3px solid #ddd;
+    }
+    div.imgf:hover {
+        border: 4px solid #555;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    div.imgf img {
+        width: 100%;
+        height: auto;
+    }
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    .box2{
+        margin-top: 3px;
+        width: 100%;
+        border: 5px solid #6C9AD6;
+        height: 276px;
+        border-radius: 10px;
+    }
+    .responsive {
+        margin-top: 8px;
+        padding: 0 6px;
+        float: left;
+        width: 24.99999%;
+    }
+    @media only screen and (max-width: 700px){
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+        .box2{
+            width: 49.99999%;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    @media only screen and (max-width: 500px){
+        .responsive {
+            width: 100%;
+        }
+    }
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .demo-table-expand {
+      font-size: 0;
+    }
+    .demo-table-expand label {
+      width: 90px;
+      color: #99a9bf;
+    }
+    .demo-table-expand .el-form-item {
+      margin-right: 0;
+      margin-bottom: 0;
+      width: 50%;
+    }
+    .box3{
+        margin-top: 3px;
+        width: 100%;
+        border: 50px solid #6C9AD6;
+        height: 400px;
+        border-radius: 10px;
+    }
+</style>
+<body>
+<br>
+<br>
+<br>
+<div class="logo-bar">
+	<div class="h-content">
+		<img src="image/图片1.png"  class="logo-img">
+		<img src="image/图片2.png" class="motto-img">
+	</div>
+</div>
+<br>
+<ul id="ul1" class="shu">
+<li><a class="a1" href="首页.html">首页</a></li>
+<li><a class="a1" href="发布课程.html">发布课程</a></li>
+	<div class="dropdown">
+	  <a  href="选课.html" class="dropbtn">选课</a>
+		<div class="dropdown-content">
+			<a href="课程界面.html">课程界面</a>
+			<a href="自主选课.html">自主选课</a>
+		</div>
+	</div>
+ 	<div class="dropdown">
+	  <a  href="上课.html" class="dropbtn">上课</a>
+		<div class="dropdown-content">
+			<a href="考勤信息.html">考勤信息</a>
+			<a href="上课点名.html">上课点名</a>
+		</div>
+	</div>
+<li><a class="a1" href="出卷单.html">出卷</a></li>
+<li><a class="a1" href="批卷单.html">批卷</a></li>
+<li><a class="a1" href="成绩公示.html">成绩公示</a></li>
+</ul>
+<br>
+<br>
+<div class="box3">
+
+</br>
+<form name="input" action="html_form_action.php" method="post" style="text-align: center;">
+题号: <input type="text" name="tnumber">
+<br>
+<br>
+得分: <input type="text" name="score" required="required">
+<br>
+<br>
+<input type="submit" value="下一题">
+</form>
+   
+  <br>
+<br>
+<div class="footer">
+<p>
+</p>
+<p>教学服务管理平台</p>
+</div>
+<br>
+<br>
+</body>
+  
+</html>
